@@ -1,21 +1,34 @@
 import React from 'react';
-import Analytics from './components/Analytics';
-import Cards from './components/Cards';
 import Footer from './components/Footer';
-import Hero from './components/Hero';
 import Navbar from './components/Navbar';
-import Newsletter from './components/Newsletter';
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import Travel from './components/pages/Travel';
+import Contact from './components/pages/Contact';
+import Login from './components/pages/Login';
+import Signup from './components/pages/Signup';
+import { 
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
 
 function App() {
   return (
-    <div>
+    <>
+      <Router>
       <Navbar />
-      <Hero />
-      <Analytics />
-      <Newsletter />
-      <Cards />
+      <Routes>
+        <Route exact path="/Home" element={<Home />} />
+        <Route exact path="/About" element={<About />} />
+        <Route exact path="/Travel" element={<Travel />} />
+        <Route exact path="/Contact" element={<Contact />} />
+        <Route exact path="/Login" element={<Login />} />
+        <Route exact path="/Signup" element={<Signup />} />
+      </Routes>
       <Footer />
-    </div>
+      </Router>
+    </>
   );
 }
 
